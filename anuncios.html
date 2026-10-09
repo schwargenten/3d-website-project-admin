@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anúncios – Nexora Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="d-flex">
+  <aside class="admin-sidebar" style="width:240px;flex-shrink:0">
+    <div class="px-3 mb-4">
+      <a href="../index.html" class="text-white fw-bold text-decoration-none"><i class="bi bi-hexagon-fill me-2" style="color:var(--primary)"></i>Nexora</a>
+      <div class="small text-muted mt-1">Painel Admin</div>
+    </div>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="dashboard.html"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+      <a class="nav-link" href="produtos.html"><i class="bi bi-box-seam me-2"></i> Produtos</a>
+      <a class="nav-link" href="promocoes.html"><i class="bi bi-tag me-2"></i> Promoções</a>
+      <a class="nav-link" href="pedidos.html"><i class="bi bi-receipt me-2"></i> Pedidos</a>
+      <a class="nav-link" href="usuarios.html"><i class="bi bi-people me-2"></i> Usuários</a>
+      <a class="nav-link" href="visibilidade.html"><i class="bi bi-eye me-2"></i> Visibilidade</a>
+      <a class="nav-link active" href="anuncios.html"><i class="bi bi-megaphone me-2"></i> Anúncios</a>
+      <hr style="border-color:var(--dark-4);margin:1rem 1rem">
+      <a class="nav-link" href="../index.html"><i class="bi bi-shop me-2"></i> Ver Loja</a>
+      <a class="nav-link text-danger" href="#" onclick="sessionStorage.removeItem('nx_admin');location.href='login.html'"><i class="bi bi-box-arrow-left me-2"></i> Sair</a>
+    </nav>
+  </aside>
+
+  <main class="flex-grow-1 p-4" style="background:var(--black);min-height:100vh">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="h3 fw-bold text-white mb-0">Anúncios & Destaques</h1>
+      <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#adModal"><i class="bi bi-plus-lg me-1"></i> Novo Anúncio</button>
+    </div>
+
+    <p class="text-muted mb-4">Gerencie banners, destaques na home e anúncios pagos (estilo Shopee / Mercado Livre Ads).</p>
+
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="card border-0 rounded-4">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="badge bg-success">Ativo</span>
+              <small class="text-muted">Home Banner</small>
+            </div>
+            <h5 class="fw-bold text-white">Frete grátis + NEXORA10</h5>
+            <p class="small text-muted">Banner principal da home · 2.4k impressões</p>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-secondary rounded-pill">Editar</button>
+              <button class="btn btn-sm btn-outline-danger rounded-pill">Pausar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-0 rounded-4">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="badge bg-primary">Destaque</span>
+              <small class="text-muted">Produto</small>
+            </div>
+            <h5 class="fw-bold text-white">Luminária LED Diffuser</h5>
+            <p class="small text-muted">Posição #1 em Novidades · CTR 4.2%</p>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-secondary rounded-pill">Editar</button>
+              <button class="btn btn-sm btn-outline-danger rounded-pill">Remover</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-0 rounded-4 opacity-75">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="badge bg-secondary">Pausado</span>
+              <small class="text-muted">Stories / Social</small>
+            </div>
+            <h5 class="fw-bold text-white">Campanha Instagram Ads</h5>
+            <p class="small text-muted">Orçamento R$ 500 · ROAS 3.1x</p>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-success rounded-pill">Reativar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="modal fade" id="adModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content border-0" style="border-radius:16px">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">Criar Anúncio / Destaque</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label small fw-semibold">Título</label><input type="text" class="form-control"></div>
+        <div class="mb-3"><label class="form-label small fw-semibold">Tipo</label>
+          <select class="form-select">
+            <option>Banner Home</option>
+            <option>Destaque de Produto</option>
+            <option>Campanha Social Ads</option>
+            <option>Pop-up / Modal</option>
+          </select>
+        </div>
+        <div class="mb-3"><label class="form-label small fw-semibold">Link de destino</label><input type="url" class="form-control" placeholder="https://..."></div>
+        <div class="mb-3"><label class="form-label small fw-semibold">Orçamento diário (R$)</label><input type="number" class="form-control" placeholder="Opcional"></div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-primary rounded-pill" onclick="showToast('Anúncio criado! (mock)');bootstrap.Modal.getInstance(document.getElementById('adModal')).hide()">Criar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/app.js"></script>
+<script>if(!sessionStorage.getItem('nx_admin')) location.href='login.html';</script>
+</body>
+</html>
